@@ -11,15 +11,15 @@ public class MusicPlayer implements MediaPlayer.OnCompletionListener {
     private MusicService musicService;
 
     static final int[] MUSICPATH = new int[]{
-            R.raw.mario,
-            R.raw.tetris,
-            R.raw.gotechgo
+            R.raw.gotechgo,
+            R.raw.entersandman,
+            R.raw.yaya
     };
 
     static final String[] MUSICNAME = new String[]{
-            "Super Mario Brothers",
-            "Tetris",
-            "Go Tech Go!"
+            "Go Tech Go!",
+            "Enter Sandman",
+            "Yaya Kolo"
     };
 
     public MusicPlayer(MusicService service) {
