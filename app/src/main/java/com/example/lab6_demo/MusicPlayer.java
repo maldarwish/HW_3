@@ -7,6 +7,7 @@ public class MusicPlayer implements MediaPlayer.OnCompletionListener {
     MediaPlayer player;
     int currentPosition = 0;
     int musicIndex = 0;
+    int extraIndex = 0;
     private int musicStatus = 0;//0: before playing, 1 playing, 2 paused
     private MusicService musicService;
 
@@ -16,10 +17,22 @@ public class MusicPlayer implements MediaPlayer.OnCompletionListener {
             R.raw.yaya
     };
 
+    static final int[] EXTRAPATH = new int[]{
+            R.raw.clapping,
+            R.raw.cheering,
+            R.raw.lestgohokies
+    };
+
     static final String[] MUSICNAME = new String[]{
             "Go Tech Go!",
             "Enter Sandman",
             "Yaya Kolo"
+    };
+
+    static final String[] EXTRANAME = new String[]{
+            "Clapping",
+            "Cheering",
+            "Go Hokies"
     };
 
     public MusicPlayer(MusicService service) {
@@ -51,6 +64,16 @@ public class MusicPlayer implements MediaPlayer.OnCompletionListener {
         player.release();
         player= null;
         playMusic();
+    }
+
+    public void restart() {
+        if (player != null) {
+            player.stop();
+            player.release();
+            player = null;
+            currentPosition = 0;
+            playMusic();
+        }
     }
 
     public void prevSong() {

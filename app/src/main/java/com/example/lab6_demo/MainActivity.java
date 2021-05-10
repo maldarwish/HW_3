@@ -11,12 +11,14 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView music;
     Button play;
+    ImageView imageView;
 
     MusicService musicService;
     MusicCompletionReceiver musicCompletionReceiver;
@@ -33,7 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setImageResource(R.drawable.hokies);
         music= (TextView) findViewById(R.id.music);
         play= (Button) findViewById(R.id.play);
         play.setOnClickListener(this);
@@ -79,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void prev(View view) {
         musicService.prevSong();
     }
+
+    public void restart(View view) { musicService.restart(); }
 
 
     public void updateName(String musicName) {
