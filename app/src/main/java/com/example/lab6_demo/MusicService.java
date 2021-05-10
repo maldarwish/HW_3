@@ -41,6 +41,14 @@ public class MusicService extends Service {
         return musicPlayer.getMusicStatus();
     }
 
+    public void nextSong() {
+        musicPlayer.nextSong();
+    }
+
+    public void prevSong() {
+        musicPlayer.prevSong();
+    }
+
 
     public void onUpdateMusicName(String musicname) {
         Intent intent = new Intent(COMPLETE_INTENT);

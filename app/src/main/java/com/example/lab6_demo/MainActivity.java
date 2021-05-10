@@ -74,6 +74,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void next(View view) { musicService.nextSong(); }
+
+    public void prev(View view) {
+        musicService.prevSong();
+    }
+
 
     public void updateName(String musicName) {
 
